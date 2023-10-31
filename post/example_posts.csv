@@ -1,0 +1,3 @@
+title,content,image_prompt,image_path,image_filename,Post Type,qodef_stock_photography_licence_meta,qodef_stock_photography_free_meta,Stock Photography Categories,Stock Photography Tags,Status,Author ID,Comment Status
+img_1.jpg,本文テキスト,"prompt",/Users/username/img_1.jpg,img_1.jpg,post,CC0ライセンス,yes,"Category","tag",draft,1,closed
+img_2.jpg,本文テキスト,"prompt",/Users/username/img_2.jpg,img_2.jpg,post,CC0ライセンス,yes,"Category","tag",draft,1,closed
