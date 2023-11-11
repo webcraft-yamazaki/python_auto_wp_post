@@ -33,8 +33,11 @@ WP_API_MEDIA = config['wp_api_media']
 WP_API_BASE = config['wp_api_base']
 
 def get_or_create_term(taxonomy_slug, term_name):
+
+    term_slug = term_name.lower().replace(' ', '-')
+
     headers = {'Content-Type': 'application/json'}
-    response = requests.get(f"{WP_API_BASE}/{taxonomy_slug}/?slug={term_name}", headers=headers, auth=(USERNAME, PASSWORD), verify=False)
+    response = requests.get(f"{WP_API_BASE}/{taxonomy_slug}/?slug={term_slug}", headers=headers, auth=(USERNAME, PASSWORD), verify=False)
     
     if response.status_code == 200:
         terms = response.json()
@@ -44,6 +47,7 @@ def get_or_create_term(taxonomy_slug, term_name):
             # Term does not exist, create a new one
             new_term_data = {
                 'name': term_name,
+                'slug': term_slug,
                 'taxonomy': taxonomy_slug
             }
             response = requests.post(f"{WP_API_BASE}/{taxonomy_slug}", headers=headers, json=new_term_data, auth=(USERNAME, PASSWORD), verify=False)
